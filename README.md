@@ -3,7 +3,7 @@
 
 Project Statement
 ---
-This repository is constructed for a maze challenging and containing the full implementation of a project for the EEP 520 course; Software Engineering for Embedded Applications offered at the University of Washington. The project consists of a player robot that controled by user to seek the exit path of the maze, the ghosts wandering around and trying to catch the player robot and exit point marked in red paint. More detail of gaming feature will be explained in functionality section. This project is based on 'Elma' and 'Enviro packages which made by Prof.Eric Klavins.
+This repository is constructed for a maze challenging and containing the full implementation of a project for the EEP 520 course; Software Engineering for Embedded Applications offered at the University of Washington. The project consists of a player robot that controlled by users to seek the exit path of the maze, the ghosts wandering around and trying to catch the player robot and exit point marked in red paint. More detail of the gaming feature will be explained in the functionality section. This project is based on 'Elma' and 'Enviro packages made by Prof.Eric Klavins.
 
 Preparement - MacOS & Windows
 ---
@@ -32,7 +32,7 @@ docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.6 bash
 Your terminal should be running under "root@...", which means you're working from within the container.
 Usage
 ---
-The game is designed to controled a trapped robot in the maze where surrounding with orange ghosts who are capable to teleport the robot to the start point if collision happens. As a player/user, you can use the keyboard to control dirction of robot to nevigate robot to the exit point or even shoot the ghosts with bullets. Let's help this poor robot get out of this maze. <br />
+The game is designed to control a trapped robot in the maze where surrounding with orange ghosts who are capable to teleport the robot to the start point if a collision happens. As a player/user, you can use the keyboard to control the direction of the robot to navigate the robot to the exit point or even shoot the ghosts with bullets. Let's help this poor robot get out of this maze. <br />
 To start this game, you need to do the following comments in your terminal/ powershell. <br /> 
 ```bash
 cd EE520projec
