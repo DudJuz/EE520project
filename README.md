@@ -23,10 +23,8 @@ All the contents should be successfully clone in your computer. <br />
 Preparement - Elma & Enviro
 ---
 As mentioned before, this project is mainly implemented by using Elma & Enviro. The detail documentatiosn of these two packages is in the links below: <br/><br />
-
-ELMA   (https://github.com/klavinslab/elma)<br />
-ENVIRO (https://github.com/klavinslab/enviro) <br /> <br />
-
+Elma    (https://github.com/klavinslab/elma)<br />
+Enviro  (https://github.com/klavinslab/enviro) <br /> <br />
 For the effective and efficient purpose, it's recommand to install docker to set up the developing enviroment with Elma & Enviro. (https://www.docker.com).  Once completed the installation, go to the directory where the project has been copied and simply do on the terminal window/ powershell for Windows users. <br /> 
 ```bash
 docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.6 bash
