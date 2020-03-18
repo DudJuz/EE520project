@@ -30,6 +30,7 @@ For the effective and efficient purpose, it's recommand to install docker to set
 docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.6 bash
 ```
 Your terminal should be running under "root@...", which means you're working from within the container.<br />
+<br />
 Usage
 ---
 The game is designed to control a trapped robot in the maze where surrounding with orange ghosts who are capable to teleport the robot to the start point if a collision happens. As a player/user, you can use the keyboard to control the direction of the robot to navigate the robot to the exit point or even shoot the ghosts with bullets. Let's help this poor robot get out of this maze. <br />
