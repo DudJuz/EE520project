@@ -3,6 +3,7 @@
 
 Project Statement
 ---
+This repository 
 
 Preparement - MacOS & Windows
 ---
