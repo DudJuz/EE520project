@@ -22,14 +22,16 @@ All the contents should be successfully clone in your computer. <br />
 <br />
 Preparement - Elma & Enviro
 ---
-As mentioned before, this project is mainly implemented by using Elma & Enviro. The detail documentatiosn of these two packages is in the links below: <br/>
--ELMA   (https://github.com/klavinslab/elma)<br />
--ENVIRO (https://github.com/klavinslab/enviro) <br /> 
+As mentioned before, this project is mainly implemented by using Elma & Enviro. The detail documentatiosn of these two packages is in the links below: <br/><br />
+
+ELMA   (https://github.com/klavinslab/elma)<br />
+ENVIRO (https://github.com/klavinslab/enviro) <br /> <br />
+
 For the effective and efficient purpose, it's recommand to install docker to set up the developing enviroment with Elma & Enviro. (https://www.docker.com).  Once completed the installation, go to the directory where the project has been copied and simply do on the terminal window/ powershell for Windows users. <br /> 
 ```bash
 docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.6 bash
 ```
-Your terminal should be running under "root@...", which means you're working from within the container.
+Your terminal should be running under "root@...", which means you're working from within the container.<br />
 Usage
 ---
 The game is designed to control a trapped robot in the maze where surrounding with orange ghosts who are capable to teleport the robot to the start point if a collision happens. As a player/user, you can use the keyboard to control the direction of the robot to navigate the robot to the exit point or even shoot the ghosts with bullets. Let's help this poor robot get out of this maze. <br />
