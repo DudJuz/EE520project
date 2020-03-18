@@ -18,7 +18,7 @@ git clone https://github.com/DudJuz/EE520projec.git
 cd EEP520-FinalProject
 ```
 All the contents should be successfully cloned on your computer. <br />
-<br />
+
 Preparation - Elma & Enviro
 ---
 As mentioned before, this project is mainly implemented by using Elma & Enviro. The detail documentation of these two packages is in the links below: <br/><br />
