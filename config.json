@@ -20,7 +20,7 @@
             "definition": "defs/goal.json",
             "style": { "fill": "red", "stroke": "black"},
             "position": {
-                "x": 740, 
+                "x": 700, 
                 "y": -350, 
                 "theta": 0
             }
@@ -32,38 +32,38 @@
             "position": {"x": -400, "y": -200, "theta": 3.14 }
         },
         {
-            "definition": "defs/virus.json",
-            "style": { "fill": "orange", "stroke": "black", "strokeWidth": "10px", "strokeOpacity": "0.25" },
+            "definition": "defs/ghost.json",
+            "style": { "fill": "orange", "stroke": "black" },
             "position": { "x": 100, "y": 100, "theta": 0 }
         },
         {
-            "definition": "defs/virus.json",
-            "style": { "fill": "orange", "stroke": "black", "strokeWidth": "10px", "strokeOpacity": "0.25" },
+            "definition": "defs/ghost.json",
+            "style": { "fill": "orange", "stroke": "black" },
             "position": { "x": 100, "y": -100, "theta": 0 }
         },
         {
-            "definition": "defs/virus.json",
-            "style": { "fill": "orange", "stroke": "black", "strokeWidth": "10px", "strokeOpacity": "0.25" },
+            "definition": "defs/ghost.json",
+            "style": { "fill": "orange", "stroke": "black"},
             "position": { "x": -100, "y": 100, "theta": 0 }
         },
         {
-            "definition": "defs/virus.json",
-            "style": { "fill": "orange", "stroke": "black", "strokeWidth": "10px", "strokeOpacity": "0.25" },
+            "definition": "defs/ghost.json",
+            "style": { "fill": "orange", "stroke": "black" },
             "position": { "x": -100, "y": -100, "theta": 0 }
         },
         {
-            "definition": "defs/virus.json",
-            "style": { "fill": "orange", "stroke": "black", "strokeWidth": "10px", "strokeOpacity": "0.25" },
+            "definition": "defs/ghost.json",
+            "style": { "fill": "orange", "stroke": "black" },
             "position": { "x": -500, "y": -200, "theta": 0 }
         },
         {
-            "definition": "defs/virus.json",
-            "style": { "fill": "orange", "stroke": "black", "strokeWidth": "10px", "strokeOpacity": "0.25" },
+            "definition": "defs/ghost.json",
+            "style": { "fill": "orange", "stroke": "black" },
             "position": { "x": -500, "y": 200, "theta": 0 }
         },
         {
-            "definition": "defs/virus.json",
-            "style": { "fill": "orange", "stroke": "black", "strokeWidth": "10px", "strokeOpacity": "0.25" },
+            "definition": "defs/ghost.json",
+            "style": { "fill": "orange", "stroke": "black"},
             "position": { "x": -500, "y": 350, "theta": 0 }
         }
                 
@@ -82,10 +82,10 @@
         {
             "style": { "fill": "gray", "stroke": "none" },
             "shape": [
-                { "x": 750, "y": -200 },
+                { "x": 750, "y": -300 },
                 { "x": 750,  "y": 400 },
                 { "x": 740,  "y": 400 },
-                { "x": 740, "y": -200 }
+                { "x": 740, "y": -300 }
             ]
         },
         {

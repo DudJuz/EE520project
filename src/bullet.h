@@ -11,17 +11,17 @@ class BulletController : public Process, public AgentInterface {
     BulletController() : Process(), AgentInterface(), counter(0) {}
 
     void init() {
-        notice_collisions_with("Virus", [&](Event &e) {
+        // Bullet will dispear after hitting on a ghost.
+        notice_collisions_with("Gosht", [&](Event &e) {
             remove_agent(e.value()["id"]);
             remove_agent(id());
         });  
-        notice_collisions_with("Cell", [&](Event &e) {
-            remove_agent(id());
-        });               
+                      
     }
     void start() {}
     void update() {
-        if ( counter++ > 20 ) {
+        // After certain range of the distance, bullet will dispear.  
+        if ( counter++ > 15 ) {
             remove_agent(id());
         }
     }

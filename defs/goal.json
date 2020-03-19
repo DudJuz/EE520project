@@ -3,10 +3,10 @@
     "type": "dynamic",
     "description": "The end point of the maze.",
     "shape": [
-        { "x": -20, "y": -10 },
+        { "x": -20, "y": -20 },
         { "x": -20, "y": 20 },
         { "x": 20, "y": 20 },
-        { "x": 20, "y": -5 }
+        { "x": 20, "y": -20 }
     ],
 
     "friction": {
@@ -16,5 +16,5 @@
     },
     "sensors": [],
     "mass": 1,    
-    "controller": "lib/virus.so"
+    "controller": "lib/goal.so"
 }
