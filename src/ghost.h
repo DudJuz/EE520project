@@ -12,6 +12,7 @@ class GhostController : public Process, public AgentInterface {
     GhostController() : Process(), AgentInterface() {}
 
     void init() {
+        //Adding two eyes on the ghost.
         decorate(R"(<g>
             <circle cx=-5 cy=-3 r=2 style='fill:black'></circle>
             <circle cx=5 cy=-3 r=2 style='fill:black'></circle></g>)");
@@ -19,6 +20,7 @@ class GhostController : public Process, public AgentInterface {
 
     void start() {}
     void update() {
+        //omni beheavious
         omni_apply_force(
             (rand() % fmax) - fmax/2, 
             (rand() % fmax) - fmax/2
@@ -28,6 +30,7 @@ class GhostController : public Process, public AgentInterface {
         });     
     }
     void stop() {}
+    //set the constant fmax
     const int fmax = 100.0;          
 };
 

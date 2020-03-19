@@ -49,95 +49,12 @@ Porject Functionality
 ===
 Player Robot
 ---
+<<<<<<< HEAD
 Player robot is marked in green and controlled by users. All the features or controls are in "PlayerController" under the 'player.h' file.  PlayerController class defines what the robot should do when pressing the keys on the keyboard and at what force / direction should the robot move when the keys are pressed. The class is also counting teleport event of collision if the robot collides with any ghost in the maze. The source code of PlayerController is provided below.  
-```c++
-class PlayerController : public Process, public AgentInterface {
-    public:
-    PlayerController() : Process(), AgentInterface(), f(0), tau(0), firing(false) {}
 
-    void init() {
-        //This watch is looking for user input on if shooting bullet 
-        //and directional control.
-        watch("keydown", [&](Event &e) {
-            auto k = e.value()["key"].get<std::string>();
-            if ( k == " " && !firing ) {
-                  Agent& bullet = add_agent("Bullet", 
-                    x() + 17*cos(angle()), 
-                    y() + 17*sin(angle()), 
-                    angle(), 
-                    BULLET_STYLE);    
-                    bullet.apply_force(50,0);
-                  firing = true;
-            } else if ( k == "w" ) {
-                  f = magnitude + speedup;              
-            } else if ( k == "s" ) {
-                  f = -magnitude;  
-            } else if ( k == "a" ) {
-                  tau = -magnitude;
-            } else if ( k == "d" ) {
-                  tau = magnitude;
-            } 
-            else if ( k != "l" ) {
-                  speedup = 0;
-            } 
-            
-        }); 
-        //Robot control.
-        //This watch is lookring for fire status and key press input from users.         
-        watch("keyup", [&](Event &e) {
-            auto k = e.value()["key"].get<std::string>();
-            if ( k == " " ) {
-                firing = false;
-            } else if ( k == "w" || k == "s" ) {
-                  f = 0;               
-            } else if ( k == "a" ) {
-                  tau = 0;
-            } else if ( k == "d" ) {
-                  tau = 0;
-            } 
-            else if ( k == "l" ) {
-                  speedup = rand()%100;
-            } 
-            
-        });
-        // Robot will be teleported to the starting position when collides
-        // with ghost. The appearance of robot will be different and movement will
-        // be slow by random factor.
-        notice_collisions_with("Ghost", [&](Event &e) {
-            teleport(-700,350,0);
-            decorate("<circle cx=0 cy=0 r=8 style='fill:red'></circle>");
-            double magnitude = magnitude - rand()%100;
-            
-        });  
-        //Robot will be teleported to the starting point."You made it" will be
-        // display randomly on the screen. The infection effect will dispear. 
-        notice_collisions_with("Goal", [&](Event &e) {
-            label("You made it!!",-650,350);
-            teleport(-700,350,0);
-            decorate("");
-        }); 
-        zoom(2.5);
-        
-    }
-    void start() { }
-    void update() {
-        apply_force(f,tau);
-    } 
-    void stop() {}
-    double f, tau;
-    double magnitude = 180;
-    double speedup = 0;
-    bool firing;
-    const json BULLET_STYLE = { 
-                   {"fill", "green"}, 
-                   {"stroke", "#888"}, 
-                   {"strokeWidth", "5px"},
-                   {"strokeOpacity", "0.25"}
-               };
-
-};
-
-```
+=======
+Player robot is marked in green and controlled by users. All the features or controls are in "playerAgentController" under the 'player.h' file.  PlayerAgentController class defines what the robot should do when pressing the keys on the keyboard and at what force / direction should the robot move when the keys are pressed. The class is also counting teleport event of collision if the robot collides with any ghost in the maze. The general control logic is adopted from example source code from Prof.Klavins  <br />
+>>>>>>> project updates
 
 Ghosts
 ---
@@ -149,7 +66,9 @@ The goal is the exit point of the maze, marked in the color of red. When robot g
 
 Key Development Challenges
 ===
-This project is one of the most interesting and hand-on projects but I still had several difficult times to conquer some features including maze development, control optimization and ghost featuring. <br />
+This project is one of the most interesting and hand-on projects but I still had several difficult times to conquer some features including maze development and control optimization <br />
 
 -Maze Development: Constructing  this maze spent 40% of the time on this project. I first tried to draw a rough sketch on a paper and then I realized it is extremely difficult to put coordination and shape correctly in code. In the end, I used AutoCAD to draw the maze I wanted and get all the coordination accurately. Maze development definitely is a challenge.
+-Control Optimization: Although general control logic is provide from sample code, I want to add extra feature to gain the user experiance including acclaracing when press a button, teleport the robot when collides with ghost. Problems were solved by hours reseearching. A helpful post from stack overflow providing ideas to solve the problems.
+
 
