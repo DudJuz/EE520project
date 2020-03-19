@@ -5,7 +5,7 @@
 #include <math.h>
 
 using namespace enviro;
-
+// Ghost will move in omni behavious. Ghost will be gone when hitted by a bullet.
 class GhostController : public Process, public AgentInterface {
 
     public:
