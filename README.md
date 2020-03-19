@@ -50,7 +50,7 @@ Porject Functionality
 Player Robot
 ---
 Player robot is marked in green and controlled by users. All the features or controls are in "playerAgentController" under the 'player.h' file.  PlayerAgentController class defines what the robot should do when pressing the keys on the keyboard and at what force / direction should the robot move when the keys are pressed. The class is also counting teleport event of collision if the robot collides with any ghost in the maze. The source code of playerAgentController is provided below.  
-```
+```c++
 class PlayerController : public Process, public AgentInterface {
     public:
     PlayerController() : Process(), AgentInterface(), f(0), tau(0), firing(false) {}
@@ -142,7 +142,7 @@ class PlayerController : public Process, public AgentInterface {
 Ghosts
 ---
 The ghosts are marked in the color of orange and wandering randomly in the maze that trying to catch the player robot. The code for the ghost is called 'ghost.h'. The wandering feature is achieved by the omni damper movement. The representation of this class can be found in the display in below.<br />
-```
+```c++
 class GhostController : public Process, public AgentInterface {
 
     public:
