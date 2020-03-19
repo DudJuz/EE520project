@@ -50,10 +50,125 @@ Porject Functionality
 Player Robot
 ---
 Player robot is marked in green and controlled by users. All the features or controls are in "playerAgentController" under the 'player.h' file.  PlayerAgentController class defines what the robot should do when pressing the keys on the keyboard and at what force / direction should the robot move when the keys are pressed. The class is also counting teleport event of collision if the robot collides with any ghost in the maze. The source code of playerAgentController is provided below.  
+```
+class PlayerController : public Process, public AgentInterface {
+    public:
+    PlayerController() : Process(), AgentInterface(), f(0), tau(0), firing(false) {}
+
+    void init() {
+        //This watch is looking for user input on if shooting bullet 
+        //and directional control.
+        watch("keydown", [&](Event &e) {
+            auto k = e.value()["key"].get<std::string>();
+            if ( k == " " && !firing ) {
+                  Agent& bullet = add_agent("Bullet", 
+                    x() + 17*cos(angle()), 
+                    y() + 17*sin(angle()), 
+                    angle(), 
+                    BULLET_STYLE);    
+                    bullet.apply_force(50,0);
+                  firing = true;
+            } else if ( k == "w" ) {
+                  f = magnitude + speedup;              
+            } else if ( k == "s" ) {
+                  f = -magnitude;  
+            } else if ( k == "a" ) {
+                  tau = -magnitude;
+            } else if ( k == "d" ) {
+                  tau = magnitude;
+            } 
+            else if ( k != "l" ) {
+                  speedup = 0;
+            } 
+            
+        }); 
+        //Robot control.
+        //This watch is lookring for fire status and key press input from users.         
+        watch("keyup", [&](Event &e) {
+            auto k = e.value()["key"].get<std::string>();
+            if ( k == " " ) {
+                firing = false;
+            } else if ( k == "w" || k == "s" ) {
+                  f = 0;               
+            } else if ( k == "a" ) {
+                  tau = 0;
+            } else if ( k == "d" ) {
+                  tau = 0;
+            } 
+            else if ( k == "l" ) {
+                  speedup = rand()%100;
+            } 
+            
+        });
+        // Robot will be teleported to the starting position when collides
+        // with ghost. The appearance of robot will be different and movement will
+        // be slow by random factor.
+        notice_collisions_with("Ghost", [&](Event &e) {
+            teleport(-700,350,0);
+            decorate("<circle cx=0 cy=0 r=8 style='fill:red'></circle>");
+            double magnitude = magnitude - rand()%100;
+            
+        });  
+        //Robot will be teleported to the starting point."You made it" will be
+        // display randomly on the screen. The infection effect will dispear. 
+        notice_collisions_with("Goal", [&](Event &e) {
+            label("You made it!!",-650,350);
+            teleport(-700,350,0);
+            decorate("");
+        }); 
+        zoom(2.5);
+        
+    }
+    void start() { }
+    void update() {
+        apply_force(f,tau);
+    } 
+    void stop() {}
+    double f, tau;
+    double magnitude = 180;
+    double speedup = 0;
+    bool firing;
+    const json BULLET_STYLE = { 
+                   {"fill", "green"}, 
+                   {"stroke", "#888"}, 
+                   {"strokeWidth", "5px"},
+                   {"strokeOpacity", "0.25"}
+               };
+
+};
+
+```
 
 Ghosts
 ---
 The ghosts are marked in the color of orange and wandering randomly in the maze that trying to catch the player robot. The code for the ghost is called 'ghost.h'. The wandering feature is achieved by the omni damper movement. The representation of this class can be found in the display in below.<br />
+```
+class GhostController : public Process, public AgentInterface {
+
+    public:
+    GhostController() : Process(), AgentInterface() {}
+
+    void init() {
+        decorate(R"(<g>
+            <circle cx=-5 cy=-3 r=2 style='fill:black'></circle>
+            <circle cx=5 cy=-3 r=2 style='fill:black'></circle></g>)");
+    }
+
+    void start() {}
+    void update() {
+        omni_apply_force(
+            (rand() % fmax) - fmax/2, 
+            (rand() % fmax) - fmax/2
+        );
+        notice_collisions_with("Bullet", [&](Event &e) {
+            remove_agent(id());
+        });     
+    }
+    void stop() {}
+    const int fmax = 100.0;          
+};
+
+```
 
 Goal
 ---
