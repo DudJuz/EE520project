@@ -49,12 +49,7 @@ Porject Functionality
 ===
 Player Robot
 ---
-<<<<<<< HEAD
-Player robot is marked in green and controlled by users. All the features or controls are in "PlayerController" under the 'player.h' file.  PlayerController class defines what the robot should do when pressing the keys on the keyboard and at what force / direction should the robot move when the keys are pressed. The class is also counting teleport event of collision if the robot collides with any ghost in the maze. The source code of PlayerController is provided below.  
-
-=======
 Player robot is marked in green and controlled by users. All the features or controls are in "playerAgentController" under the 'player.h' file.  PlayerAgentController class defines what the robot should do when pressing the keys on the keyboard and at what force / direction should the robot move when the keys are pressed. The class is also counting teleport event of collision if the robot collides with any ghost in the maze. The general control logic is adopted from example source code from Prof.Klavins  <br />
->>>>>>> project updates
 
 Ghosts
 ---
