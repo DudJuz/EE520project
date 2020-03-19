@@ -1,7 +1,7 @@
 {
     "name": "Player",
     "type": "dynamic",
-    "description": "Replace this string with a description",
+    "description": "Player Robots",
     "shape": [
       { "x": -10, "y": 10 },
       { "x": 10, "y": 10 },

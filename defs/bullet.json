@@ -1,7 +1,7 @@
 {
     "name": "Bullet",
     "type": "dynamic",
-    "description": "Replace this string with a description",
+    "description": "Bullets to shoot ghost",
     "shape": [
         { "x": -5, "y": 2 },
         { "x": 5, "y": 0 },
