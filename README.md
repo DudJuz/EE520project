@@ -141,34 +141,7 @@ class PlayerController : public Process, public AgentInterface {
 
 Ghosts
 ---
-The ghosts are marked in the color of orange and wandering randomly in the maze that trying to catch the player robot. The code for the ghost is called 'ghost.h'. The wandering feature is achieved by the omni damper movement. The representation of this class can be found in the display in below.<br />
-```c++
-class GhostController : public Process, public AgentInterface {
-
-    public:
-    GhostController() : Process(), AgentInterface() {}
-
-    void init() {
-        decorate(R"(<g>
-            <circle cx=-5 cy=-3 r=2 style='fill:black'></circle>
-            <circle cx=5 cy=-3 r=2 style='fill:black'></circle></g>)");
-    }
-
-    void start() {}
-    void update() {
-        omni_apply_force(
-            (rand() % fmax) - fmax/2, 
-            (rand() % fmax) - fmax/2
-        );
-        notice_collisions_with("Bullet", [&](Event &e) {
-            remove_agent(id());
-        });     
-    }
-    void stop() {}
-    const int fmax = 100.0;          
-};
-
-```
+The ghosts are marked in the color of orange and wandering randomly in the maze that trying to catch the player robot. The code for the ghost is called 'ghost.h'. The wandering feature is achieved by the omni damper movement. <br />
 
 Goal
 ---
